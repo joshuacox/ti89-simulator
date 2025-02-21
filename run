@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+if [[ -f .cid ]]; then
+  docker stop `cat .cid`
+  docker rm   `cat .cid`
+  rm .cid
+fi
+
+docker run \
+  -p 8080:80 \
+  --cidfile .cid \
+  --name ti89-simulator \
+  -v $(pwd):/usr/share/nginx/html:ro \
+  -d nginx:alpine
