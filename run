@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-: ${TI89_PORT:=8080}
+: ${TI89_PORT:=8989}
 
 if [[ -f .cid ]]; then
   docker stop `cat .cid`
